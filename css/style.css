@@ -6,7 +6,7 @@ is the file you need to edit to change the look of the
 template.
 ---------------------------------------------------- */
 /*=====================================================================
-@Template Name: Banca
+@Template Name: FT-Cord
 @Version: 1.0.0
 
 @Default Styles
@@ -4280,25 +4280,25 @@ header {
   color: #6a737c; }
 
 /*----------------------------------------*/
-/*  Banca Corporate Area CSS
+/*  FT-Cord Corporate Area CSS
   /*----------------------------------------*/
-.banca-corporate .section-title p {
+.FT-Cord-corporate .section-title p {
   font-size: 18px;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   color: var(--theme-title-color);
   max-width: 460px;
   margin: auto; }
-  .banca-corporate .section-title p span {
+  .FT-Cord-corporate .section-title p span {
     font-size: 22px;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
     color: var(--theme-title-color); }
-.banca-corporate .single-brand {
+.FT-Cord-corporate .single-brand {
   display: inline-block;
   transition: all 0.3s ease-out;
   box-shadow: none; }
-  .banca-corporate .single-brand:hover {
+  .FT-Cord-corporate .single-brand:hover {
     box-shadow: var(--theme-dropshadow); }
 
 /*----------------------------------------*/
@@ -5962,3 +5962,16 @@ blockquote {
 /*----------------------------------------------------*/
 
 /*# sourceMappingURL=style.css.map */
+
+#error-msg {
+  color: red;
+}
+#valid-msg {
+  color: #00C900;
+}
+input.error {
+  border: 1px solid #FF7C7C;
+}
+.hide {
+  display: none;
+}

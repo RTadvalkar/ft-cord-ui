@@ -327,12 +327,48 @@
   }
 
   //initilalize Telephone Input Country
+  var input = document.querySelector("#inputPhoneNumber"),
+  errorMsg = document.querySelector("#error-msg"),
+  validMsg = document.querySelector("#valid-msg");
+
+// here, the index maps to the error code returned from getValidationError - see readme
+  var errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
+
   if ($("#inputPhoneNumber").length) {
-    $("#inputPhoneNumber").intlTelInput({
+     $("#inputPhoneNumber").intlTelInput({
       separateDialCode: false,
-      utilsScript: "js/utils.js",
+      initialCountry: "IN",
+      utilsScript: "js/utils.js"
     });
+
+    var reset = function() {
+      input.classList.remove("error");
+      errorMsg.innerHTML = "";
+      errorMsg.classList.add("hide");
+      validMsg.classList.add("hide");
+    };
+
+    // on blur: validate
+    input.addEventListener('blur', function() {
+      reset();
+      console.log("Input value is : "+input.value.trim());
+      if (input.value.trim()) {
+        if ($("#inputPhoneNumber").intlTelInput("isValidNumber")){
+          validMsg.classList.remove("hide");
+        } else {
+          input.classList.add("error");
+          var errorCode = $("#inputPhoneNumber").intlTelInput("getValidationError");
+          errorMsg.innerHTML = errorMap[errorCode];
+          errorMsg.classList.remove("hide");
+        }
+      }
+    });
+
+    // on keyup / change flag: reset
+    input.addEventListener('change', reset);
+    input.addEventListener('keyup', reset);    
   }
+
 
   //initilalize DropeZone
   if ($("#dropzone").length) {
